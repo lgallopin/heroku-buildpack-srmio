@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# bin/detect <build-dir>
+
+echo "Detecting the srmio buildpack" && exit 0
