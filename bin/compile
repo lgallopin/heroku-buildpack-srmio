@@ -30,9 +30,10 @@ else
     cd $SRMIO_PACKAGE_NAME
 
     # configure
+    VENDOR_PREFIX=/app/.heroku/vendor
     if [ -f configure ]; then
       echo "-----> Configuring"
-      ./configure --disable-dependency-tracking 2>&1 | indent
+      ./configure --disable-dependency-tracking --prefix=$VENDOR_PREFIX 2>&1 | indent
     fi
 
     # make
