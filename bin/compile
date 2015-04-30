@@ -45,4 +45,6 @@ fi
 # ### Finalize
 #
 
-set-env PATH '$HOME/.heroku/vendor/bin:$PATH'
+PROFILE_PATH="$BUILD_DIR/.profile.d/srmio.sh"
+mkdir -p $(dirname $PROFILE_PATH)
+export PATH='$HOME/.heroku/vendor/bin:$PATH' >> $PROFILE_PATH
