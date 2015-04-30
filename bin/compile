@@ -40,3 +40,9 @@ else
     echo "-----> Compiling with Make"
     make install 2>&1 | indent
 fi
+
+
+# ### Finalize
+#
+
+set-env PATH '$HOME/.heroku/vendor/bin:$PATH'
