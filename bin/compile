@@ -16,7 +16,7 @@ function indent() {
 }
 
 # check if srmcmd is not installed
-if [ command -v srmcmd ]; then
+if [ command -v $HOME/.heroku/vendor/bin/srmcmd ]; then
     echo "srmio command is indeed accessible" | indent
 else 
     # download the last srmio build
