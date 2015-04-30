@@ -6,6 +6,7 @@ set -o pipefail
 
 BUILD_DIR=$1
 CACHE_DIR=$2
+PROFILE_PATH="$BUILD_DIR/.profile.d/srmio.sh"
 
 function indent() {
   c='s/^/       /'
@@ -13,6 +14,11 @@ function indent() {
     Darwin) sed -l "$c";;
     *)      sed -u "$c";;
   esac
+}
+
+# Usage: $ set-env key value
+set-env() {
+  echo "export $1=$2" >> $PROFILE_PATH
 }
 
 # check if srmcmd is not installed
@@ -45,6 +51,5 @@ fi
 # ### Finalize
 #
 
-PROFILE_PATH="$BUILD_DIR/.profile.d/srmio.sh"
 mkdir -p $(dirname $PROFILE_PATH)
-echo "export PATH='$HOME/.heroku/vendor/bin:$PATH'" >> $PROFILE_PATH
+set-env PATH '$HOME/.heroku/vendor/bin:$PATH'
